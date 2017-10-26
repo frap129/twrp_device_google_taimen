@@ -21,8 +21,8 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
-PRODUCT_NAME := aosp_walleye
-PRODUCT_DEVICE := walleye
+PRODUCT_NAME := aosp_taimen
+PRODUCT_DEVICE := taimen
 PRODUCT_BRAND := Android
 PRODUCT_MODEL := AOSP on msm8998
 PRODUCT_MANUFACTURER := google
@@ -33,5 +33,4 @@ PRODUCT_PACKAGES += \
     charger
 
 PRODUCT_COPY_FILES += \
-    device/google/walleye/kernel:kernel \
-    device/google/walleye/recovery/root/init.recovery.usb.rc:root/init.recovery.usb.rc
+    device/google/taimen/recovery/root/init.recovery.usb.rc:root/init.recovery.usb.rc

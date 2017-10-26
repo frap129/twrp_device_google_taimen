@@ -19,17 +19,17 @@ TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a53
 
-BOARD_KERNEL_CMDLINE := androidboot.hardware=walleye androidboot.console=ttyMSM0 lpm_levels.sleep_disabled=1 user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 service_locator.enable=1 swiotlb=2048 firmware_class.path=/vendor/firmware loop.max_part=7 buildvariant=user
+BOARD_KERNEL_CMDLINE := androidboot.hardware=taimen androidboot.console=ttyMSM0 lpm_levels.sleep_disabled=1 user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 service_locator.enable=1 swiotlb=2048 firmware_class.path=/vendor/firmware loop.max_part=7 buildvariant=user
 
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 
 # prebuilt kernel
-TARGET_PREBUILT_KERNEL := device/google/walleye/kernel
+TARGET_PREBUILT_KERNEL := device/google/wahoo-kernel/Image.lz4-dtb
 # else uncomment below to build from sauce
-# TARGET_KERNEL_SOURCE := kernel/google/walleye
-# TARGET_KERNEL_CONFIG := walleye_defconfig
+# TARGET_KERNEL_SOURCE := kernel/google/wahoo
+# TARGET_KERNEL_CONFIG := taimen_defconfig
 
 BOARD_BOOTIMAGE_PARTITION_SIZE := 41943040
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 41943040
@@ -50,3 +50,11 @@ TW_DEFAULT_BRIGHTNESS := "80"
 TW_INCLUDE_CRYPTO := true
 AB_OTA_UPDATER := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true
+
+BOARD_KERNEL_CMDLINE += console=ttyMSM0,115200,n8 earlycon=msm_serial_dm,0xc1b0000
+
+BOARD_VENDOR_KERNEL_MODULES += \
+    device/google/wahoo-kernel/touch_core_base.ko \
+    device/google/wahoo-kernel/ftm4.ko \
+    device/google/wahoo-kernel/sw49408.ko \
+    device/google/wahoo-kernel/lge_battery.ko
